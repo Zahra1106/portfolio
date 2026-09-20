@@ -8,26 +8,31 @@ interface Project {
   category: string;
   name: string;
   image: string;
+  /** Link to the live project. While this is empty, the "Live Project" button is not shown. */
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
   {
     number: "01",
     category: "App",
-    name: "Zuno -- Chat & Calls",
+    name: "Zuno – Chat & Calls",
     image: "/assets/project-zuno.png",
+    liveUrl: "", // add a link here later and the "Live Project" button appears
   },
   {
     number: "02",
-    category: "App",
-    name: "Notebook KLM -- AI Notes",
+    category: "Website",
+    name: "Al-Sahifa",
     image: "/assets/project-notebook.png",
+    liveUrl: "", // add a link here later and the "Live Project" button appears
   },
   {
     number: "03",
     category: "App",
     name: "Food Delivery",
     image: "/assets/project-food.png",
+    liveUrl: "", // add a link here later and the "Live Project" button appears
   },
 ];
 
@@ -46,7 +51,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
   return (
     <div
       ref={cardRef}
-      className="sticky top-24 md:top-32 h-[85vh] flex items-center"
+      className="sticky top-24 md:top-32 min-h-[85vh] flex items-center"
       style={{ top: `${index * 28}px` }}
     >
       <motion.div
@@ -74,7 +79,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               </span>
             </div>
           </div>
-          <LiveProjectButton />
+          {project.liveUrl && <LiveProjectButton href={project.liveUrl} />}
         </div>
 
         {/* Bottom row: image grid */}

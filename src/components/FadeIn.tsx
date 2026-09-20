@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import type { ReactNode, ElementType } from "react";
 
@@ -20,7 +21,9 @@ const FadeIn = ({
   as = "div",
   className = "",
 }: FadeInProps) => {
-  const MotionTag = motion.create(as as ElementType);
+  // Created once per tag type. Re-creating it on every render made the contents
+  // remount (e.g. the contact form lost what was typed after a failed send).
+  const MotionTag = useMemo(() => motion.create(as as ElementType), [as]);
 
   return (
     <MotionTag

@@ -77,8 +77,9 @@ const AboutSection = () => {
         </FadeIn>
 
         <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
+          {/* TODO: make sure the "five years of experience" claim is true for you; edit the text below if it is not. */}
           <AnimatedText
-            text="With more than five years of experience in app and web development, i focus on building fast, intuitive products across mobile and the browser, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
+            text="With more than three years of experience in app and web development, I focus on building fast, intuitive products across mobile and the browser. I truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
             className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
             style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}
           />
